@@ -9,18 +9,19 @@
 ## implementing a getter/setter object structure.
 ## the functions get and set functions are used to save and return the 
 ## original matrix. the functions set_inverse and get_inverse are used
-## calculated and store and to return the stored inverse matrix
+## to calculate and store the inverse matrix and to return the stored 
+## inverse matrix.
 makeCacheMatrix <- function(x = matrix()) {
     matrix <- NULL
     # if a new marix is stored, it will be checked if new matrix is identical with
     # with old matrix, if so an eventually stored inverse matrix is preserved.
     set <- function(y) {
         if (!identical(x,y)){
-        matrix <<- NULL}
+        matrix <<- NULL
     } 
     x <<- y
     }
-    ## return original martrix
+    ## return original matrix
     get <- function() x
     ##store inverse matrix variable matrix using solve function which is defined in other environement
     set_inverse <- function(solve) matrix <<- solve
@@ -53,7 +54,7 @@ cacheSolve <- function(x, ...) {
     data <- x$get()
     ## use solve on data structure
     inverse_matrix <- solve(data, ...)
-    #store value in data structure and return value
+    ## store value in data structure and return value
     x$set_inverse(inverse_matrix)
     inverse_matrix
 }
