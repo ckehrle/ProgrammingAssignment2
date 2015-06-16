@@ -17,9 +17,9 @@ makeCacheMatrix <- function(x = matrix()) {
     # with old matrix, if so an eventually stored inverse matrix is preserved.
     set <- function(y) {
         if (!identical(x,y)){
-        matrix <<- NULL
-    } 
-    x <<- y
+            matrix <<- NULL
+        } 
+        x <<- y
     }
     ## return original matrix
     get <- function() x
