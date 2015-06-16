@@ -1,13 +1,24 @@
 ## Put comments here that give an overall description of what your
 ## functions do
+## Used Sources:
+##  https://github.com/rdpeng/ProgrammingAssignment2/introduction
+##  http://www.statmethods.net/advstats/matrix.html
 
 ## Write a short comment describing this function
-
+## makeCacheMatrix takes a matrix as input an returns a list structure
+## implementing a getter/setter object structure.
+## the functions get and set functions are used to save and return the 
+## original matrix. the functions set_inverse and get_inverse are used
+## calculated and store and to return the stored inverse matrix
 makeCacheMatrix <- function(x = matrix()) {
     matrix <- NULL
+    # if a new marix is stored, it will be checked if new matrix is identical with
+    # with old matrix, if so an eventually stored inverse matrix is preserved.
     set <- function(y) {
-        x <<- y
-        matrix <<- NULL
+        if (!identical(x,y)){
+        matrix <<- NULL}
+    } 
+    x <<- y
     }
     ## return original martrix
     get <- function() x
@@ -22,6 +33,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## Write a short comment describing this function
+##
+## cacheSolve uses the list structure creates in function makeCacheMatrix.
+## It is checked if the inverse matrix is already stored in structure.
+## If it is already stored , the stored value is returned.
+## If not the value is calculated , stored and then returned.
 ##
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse of 'x'
